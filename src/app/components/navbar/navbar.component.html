@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-lg bg-white position-sticky top-0 z-100">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <img src="../../../assets/images/logo-4.png" alt="" class="brand-icon" />
+      <span class="brand-name ms-2">MediAssist</span>
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+      (click)="isCollapsed = !isCollapsed"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div
+      class="collapsableNavbar justify-content-end"
+      [ngClass]="{ collapse: isCollapsed, 'navbar-collapse': true }"
+      id="navbarNav"
+    >
+      <ul class="navbar-nav d-md-flex align-items-md-center gap-md-3">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="home" routerLinkActive="active"
+            >About Us</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="#" routerLinkActive="active"
+            >Facilities & Services</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="#" routerLinkActive="active"
+            >Contact Us</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"><button class="login py-1 px-3">Login</button></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

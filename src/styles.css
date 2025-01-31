@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+i {
+  font-family: "FontAwesome";
+  font-style: normal;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+  --primary-color: #9e5bc4;
+}
+
+* {
+  margin: 0;
+  border: 0;
+}

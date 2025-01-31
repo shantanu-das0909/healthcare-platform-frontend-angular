@@ -1,0 +1,110 @@
+.container {
+  font-size: 12px;
+}
+
+.right-col {
+  position: relative;
+}
+.right-col-img {
+  width: 70%;
+  margin-bottom: 1rem;
+}
+
+.satisfied-customers {
+  position: absolute;
+  left: -0.5rem;
+  bottom: 9rem;
+  box-shadow: 5px 5px 9px #c5c5c5;
+  font-size: 10px;
+}
+
+.doctor-profiles {
+  display: flex;
+  align-items: center;
+}
+.doctor-profiles img {
+  width: 30px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+  /* margin-left: -10px; */
+  position: relative;
+}
+
+.doctor-profiles img:nth-child(1) {
+  z-index: 4;
+}
+.doctor-profiles img:nth-child(2) {
+  margin-left: -10px;
+  z-index: 3;
+}
+.doctor-profiles img:nth-child(3) {
+  margin-left: -10px;
+  z-index: 2;
+}
+.doctor-profiles img:nth-child(4) {
+  margin-left: -10px;
+  z-index: 1;
+}
+.doctor-profiles img:nth-child(5) {
+  margin-left: -10px;
+  z-index: 0;
+}
+
+.doctor-connect {
+  display: grid;
+  place-items: center;
+  box-shadow: 5px 5px 9px #c5c5c5;
+  font-size: 10px;
+  position: absolute;
+  top: 8rem;
+  right: 1rem;
+}
+.doctor-connect img {
+  width: 30px;
+  aspect-ratio: 1;
+}
+
+.left-col .first-line,
+.left-col .second-line {
+  font-size: 3.5em;
+  font-weight: 900;
+  line-height: 30px;
+}
+
+.left-col .second-line {
+  color: blue;
+}
+
+.left-col .description {
+  margin-top: 3em;
+  font-size: 1.5em;
+}
+
+.left-col .book-appointment-btn {
+  margin-top: 3em;
+  background-color: rgb(89, 89, 211);
+}
+
+@media only screen and (max-width: 1050px) {
+  .row-first {
+    margin-top: 3em;
+  }
+  .left-col p:nth-child(1),
+  .left-col p:nth-child(2) {
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 20px;
+  }
+  .satisfied-customers {
+    scale: 0.8;
+    bottom: 5rem;
+  }
+
+  .doctor-connect {
+    scale: 0.8;
+    top: 4rem;
+    right: 0rem;
+  }
+}
