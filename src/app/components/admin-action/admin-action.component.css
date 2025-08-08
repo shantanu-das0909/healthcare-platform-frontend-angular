@@ -1,0 +1,23 @@
+/* .btn-block {
+  background-color: #b6d4fe;
+  border-color: #b6d4fe;
+  color: #084298;
+} */
+
+/* .action-buttons {
+  background-color: transparent;
+  color: transparent;
+} */
+
+.action-button button {
+  background-color: #b6d4fe;
+  border-color: #b6d4fe;
+  color: #084298;
+}
+
+.active button {
+  color: #b6d4fe;
+  border-color: #b6d4fe;
+  background-color: #084298;
+  border-radius: inherit;
+}

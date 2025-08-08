@@ -20,7 +20,8 @@
   height: 30px;
 }
 
-.login {
+.login,
+.signup {
   background-color: var(--primary-color);
   color: white;
   border: none;

@@ -1,0 +1,55 @@
+<div class="row">
+  <div class="col-12 col-md-1"></div>
+  <div class="col-12 col-md-3">
+    <!-- First column content -->
+    <div class="p-3 bg-light border rounded text-center mt-5">
+      <ul class="list-group action-buttons">
+        <li
+          class="list-group-item p-0 border-0 action-button my-1"
+          routerLinkActive="active"
+        >
+          <a [routerLink]="['appointments']">
+            <button class="btn btn-primary btn-block w-100">
+              Appointments
+            </button>
+          </a>
+        </li>
+        <li
+          class="list-group-item p-0 border-0 action-button my-1"
+          routerLinkActive="active"
+        >
+          <a routerLink="add-doctor">
+            <button class="btn btn-primary btn-block w-100">Add Doctor</button>
+          </a>
+        </li>
+        <li
+          class="list-group-item p-0 border-0 action-button my-1"
+          routerLinkActive="active"
+        >
+          <a routerLink="abc"
+            ><button class="btn btn-primary btn-block w-100">
+              Edit Details
+            </button></a
+          >
+        </li>
+        <li
+          class="list-group-item p-0 border-0 action-button my-1"
+          routerLinkActive="active"
+        >
+          <a routerLink="abc"
+            ><button class="btn btn-primary btn-block w-100">
+              Delete User
+            </button></a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-12 col-md-7">
+    <!-- Second column content -->
+    <div class="text-center mt-5">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <div class="col-12 col-md-1"></div>
+</div>
