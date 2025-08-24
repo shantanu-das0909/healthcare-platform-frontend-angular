@@ -1,5 +1,5 @@
-import { Doctor } from './Doctor.model';
-import { Patient } from './Patient.model';
+import { Doctor } from './doctor.model';
+import { Patient } from './patient.model';
 
 export class Appointment {
   constructor(

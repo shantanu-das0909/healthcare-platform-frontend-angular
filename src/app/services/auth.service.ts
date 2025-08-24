@@ -1,26 +1,40 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Signup } from '../models/Signup.model';
+import { Signup } from '../models/signup.model';
+import { BehaviorSubject, catchError, Observable, tap, throwError } from 'rxjs';
+import { User } from '../models/user.model';
+import { constants } from '../shared/constants';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
+  user = new BehaviorSubject<User | null>(null);
+
   constructor(private http: HttpClient) {}
 
-  // signup(userData: Signup) {
-  //   return this.http.post('localhost:8080/admin/patients', userData);
-  // }
+  login(loginCredentials: {
+    username: String;
+    password: String;
+  }): Observable<User> {
+    return this.http
+      .post<User>(constants.USER_AUTH_URL + '/login', loginCredentials)
+      .pipe(
+        catchError(this.handleError),
+        tap((response) => {
+          this.storeUser(response);
+          this.user.next(response);
+        })
+      );
+  }
 
-  token: string =
-    'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc1NDY0NzQ4NiwiZXhwIjoxNzU0NjUxMDg2fQ.3UQK00omlUKkcQi15VZ0rmtAKhbsb2gQrn3bA7-VN-w';
-
-  getPatients() {
-    return this.http.get('http://localhost:8080/admin/patients', {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: 'Bearer ' + this.token,
-      },
-    });
+  private handleError(error: HttpErrorResponse) {
+    return throwError(() => new Error(error.error.message));
+  }
+  private storeUser(user: User) {
+    localStorage.setItem('authData', JSON.stringify(user));
+  }
+  private removeUser(user: User) {
+    localStorage.removeItem('authData');
   }
 }

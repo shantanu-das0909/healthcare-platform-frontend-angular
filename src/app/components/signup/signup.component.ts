@@ -12,16 +12,5 @@ export class SignupComponent {
 
   constructor(private authService: AuthService) {}
 
-  onSubmit(f: NgForm) {
-    console.log(f.value);
-    // f.resetForm();
-    this.authService.getPatients().subscribe({
-      next: (data) => {
-        console.log('Patients fetched successfully:', data);
-      },
-      error: (error) => {
-        console.error('Error fetching patients:', error);
-      },
-    });
-  }
+  onSubmit(f: NgForm) {}
 }
