@@ -1,0 +1,28 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-5">
+      <ul class="list-group doctors-list">
+        <li
+          class="list-group-item"
+          *ngFor="let doctor of doctors"
+          (click)="showDoctor()"
+        >
+          <div class="doctor-profile">
+            <img src="../../../assets/images/doctor-1.avif" alt="" />{{
+              doctor.name
+            }}
+            -
+            <i class="fa-solid fa-stethoscope me-1"></i>
+            <span> {{ doctor.speciality }}</span>
+          </div>
+          <div class="doctor-detail">
+            <i class="fa-solid fa-arrow-right ms-5"></i>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-7">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

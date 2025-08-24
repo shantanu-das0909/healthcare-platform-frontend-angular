@@ -14,6 +14,14 @@ export class SignupComponent {
 
   onSubmit(f: NgForm) {
     console.log(f.value);
-    f.resetForm();
+    // f.resetForm();
+    this.authService.getPatients().subscribe({
+      next: (data) => {
+        console.log('Patients fetched successfully:', data);
+      },
+      error: (error) => {
+        console.error('Error fetching patients:', error);
+      },
+    });
   }
 }

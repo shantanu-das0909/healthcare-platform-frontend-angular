@@ -13,7 +13,7 @@ export class AuthService {
   // }
 
   token: string =
-    'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc1NDU3NzMxNiwiZXhwIjoxNzU0NTgwOTE2fQ.gAMdh9f6kxWa0shnHqlXGIxGYMAVmZcN1mLp246xG7o';
+    'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTc1NDY0NzQ4NiwiZXhwIjoxNzU0NjUxMDg2fQ.3UQK00omlUKkcQi15VZ0rmtAKhbsb2gQrn3bA7-VN-w';
 
   getPatients() {
     return this.http.get('http://localhost:8080/admin/patients', {

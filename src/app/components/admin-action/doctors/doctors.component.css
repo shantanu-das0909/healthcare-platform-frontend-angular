@@ -1,0 +1,32 @@
+.doctors-list .list-group-item {
+  padding-inline: 15px;
+  padding-block: 12px;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 3px;
+  background-color: #a963d2;
+  color: white;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.2s ease-in-out;
+}
+
+.list-group-item:hover {
+  scale: 1.01;
+  cursor: pointer;
+}
+
+img {
+  width: 30px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+  /* margin-left: -10px; */
+  position: relative;
+  margin-right: 10px;
+}

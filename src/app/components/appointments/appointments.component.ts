@@ -1,75 +1,51 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Appointment } from 'src/app/models/Appointment.model';
+import { UpdateAppointment } from 'src/app/models/UpdateAppointment.model';
+import { AdminService } from 'src/app/services/admin.service';
 
 @Component({
   selector: 'app-appointments',
   templateUrl: './appointments.component.html',
   styleUrls: ['./appointments.component.css'],
 })
-export class AppointmentsComponent {
-  editAppointment(appointment: {
-    id: number;
-    patientName: string;
-    date: string;
-    reason: string;
-  }) {}
+export class AppointmentsComponent implements OnInit {
+  appointments: Appointment[] = [];
 
-  cancelAppointment(appointment: {
-    id: number;
-    patientName: string;
-    date: string;
-    reason: string;
-  }) {}
+  constructor(private adminService: AdminService) {}
 
-  acceptAppointment(appointment: {
-    id: number;
-    patientName: string;
-    date: string;
-    reason: string;
-  }) {}
+  ngOnInit(): void {
+    this.loadAppointments();
+  }
 
-  appointments = [
-    {
-      id: 1,
-      patientName: 'John Doe',
-      date: '2024-06-10',
-      reason: 'Routine Checkup',
-    },
-    {
-      id: 2,
-      patientName: 'Jane Smith',
-      date: '2024-06-12',
-      reason: 'Consultation',
-    },
-    {
-      id: 3,
-      patientName: 'Alice Johnson',
-      date: '2024-06-15',
-      reason: 'Follow-up',
-    },
-    {
-      id: 4,
-      patientName: 'Bob Williams',
-      date: '2024-06-18',
-      reason: 'Dental Cleaning',
-    },
-    {
-      id: 5,
-      patientName: 'Emily Brown',
-      date: '2024-06-20',
-      reason: 'Vaccination',
-    },
-    {
-      id: 6,
-      patientName: 'Michael Lee',
-      date: '2024-06-22',
-      reason: 'Physical Therapy',
-    },
-    { id: 7, patientName: 'Sarah Kim', date: '2024-06-25', reason: 'Eye Exam' },
-    {
-      id: 8,
-      patientName: 'David Clark',
-      date: '2024-06-28',
-      reason: 'Blood Test',
-    },
-  ];
+  loadAppointments() {
+    this.adminService.getAppointments().subscribe({
+      next: (data: Appointment[]) => {
+        console.log(data);
+        this.appointments = data;
+      },
+      error: (error) => {
+        console.error('Error fetching appointments:', error);
+      },
+    });
+  }
+
+  editAppointment(appointment: Appointment) {}
+
+  cancelAppointment(appointment: Appointment) {}
+
+  acceptAppointment(appointment: Appointment) {
+    //update appointment set status="PENDING" where appointment_id=30;
+    const updateAppointment = new UpdateAppointment(null, 'CONFIRMED', null);
+    this.adminService
+      .updateAppointment(updateAppointment, appointment.appointmentId)
+      .subscribe({
+        next: (response) => {
+          console.log('Appointment updated successfully:', response);
+          this.loadAppointments();
+        },
+        error: (error) => {
+          console.error('Error updating appointment:', error);
+        },
+      });
+  }
 }

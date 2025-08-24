@@ -1,5 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Appointment } from '../models/Appointment.model';
+import { constants } from '../shared/constants';
+import { Observable } from 'rxjs';
+import { UpdateAppointment } from '../models/UpdateAppointment.model';
 
 @Injectable({
   providedIn: 'root',
@@ -7,7 +11,18 @@ import { Injectable } from '@angular/core';
 export class AdminService {
   constructor(private http: HttpClient) {}
 
-  getAppointments() {
-    return this.http.get('/api/appointments');
+  getAppointments(): Observable<Appointment[]> {
+    return this.http.get<Appointment[]>(constants.ADMIN_URL + '/appointments');
+  }
+
+  updateAppointment(
+    updateAppointment: UpdateAppointment,
+    appointmentId: number
+  ): Observable<any> {
+    return this.http.put<string>(
+      constants.ADMIN_URL + '/appointments/' + appointmentId,
+      updateAppointment,
+      { responseType: 'text' as 'json' }
+    );
   }
 }
